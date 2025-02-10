@@ -1,10 +1,3 @@
-const express = require('express');
-const { WebcastPushConnection } = require('tiktok-live-connector');
-
-const app = express();
-const port = 3000;
-
-// Set up the TikTok live checker
 const username = 'rararotherichest'; // Replace with your TikTok username
 const tiktokLiveConnection = new WebcastPushConnection(username);
 
@@ -28,4 +21,21 @@ app.use(express.static('public'));
 // Start the server
 app.listen(port, () => {
     console.log(`Server is running on http://localhost:${port}`);
+});
+const express = require('express');
+const path = require('path');
+const app = express();
+
+// Serve static files (like CSS, JS, images)
+app.use(express.static(path.join(__dirname, 'public')));
+
+// Serve index.html when someone accesses the root URL
+app.get('/', (req, res) => {
+  res.sendFile(path.join(__dirname, 'public', 'index.html'));  // Update to the correct path
+});
+
+// Set the port to listen on
+const port = process.env.PORT || 3000;
+app.listen(port, () => {
+  console.log(`Server is running on port ${port}`);
 });
