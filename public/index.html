@@ -68,24 +68,28 @@
     <p style="font-size: 12px; color: #888;">Website created by [Zouheir0]. All rights reserved.</p>
 
     <script>
-        // Fetch the live status from the backend
-        fetch('/check-live')
-            .then(response => response.json())
-            .then(data => {
-                const statusMessage = document.getElementById('status-message');
-                if (data.live) {
-                    statusMessage.innerHTML = 'The user is live on TikTok!';
-                    statusMessage.style.color = 'green';
-                } else {
-                    statusMessage.innerHTML = 'The user is not live.';
-                    statusMessage.style.color = 'red';
-                }
-            })
-            .catch(error => {
-                document.getElementById('status-message').innerHTML = 'Error checking live status.';
-                document.getElementById('status-message').style.color = 'gray';
-            });
+        // Run the script when the page is fully loaded
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Fetch the live status
+            fetch('https://rararotherichest.onrender.com')
+                .then(response => response.json())
+                .then(data => {
+                    const statusMessage = document.getElementById('status-message');
+                    if (data.live) {
+                        statusMessage.innerHTML = 'The user is live on TikTok!';
+                        statusMessage.style.color = 'green';
+                    } else {
+                        statusMessage.innerHTML = 'The user is not live.';
+                        statusMessage.style.color = 'red';
+                    }
+                })
+                .catch(error => {
+                    const statusMessage = document.getElementById('status-message');
+                    statusMessage.innerHTML = 'Error checking live status.';
+                    statusMessage.style.color = 'gray';
+                });
+        });
     </script>
 
 </body>
-</html>`	
+</html>
