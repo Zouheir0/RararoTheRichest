@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RararoTheRichest</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 50px;
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+        }
+        p {
+            font-size: 18px;
+            color: #555;
+        }
+        .social-links {
+            margin-top: 20px;
+        }
+        .social-links a {
+            text-decoration: none;
+            font-size: 20px;
+            color: #fff;
+            background-color: #333;
+            padding: 10px 20px;
+            border-radius: 5px;
+            margin: 10px;
+        }
+        .discord-button {
+            background-color: #7289da;
+        }
+        #status-message {
+            font-size: 24px;
+            margin-top: 20px;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Welcome to RararoTheRichest Website!</h1>
+    <p>Follow me on my journey across TikTok, YouTube, and Discord!</p>
+
+    <div class="social-links">
+        <a href="https://www.tiktok.com/@rararotherichest" target="_blank">TikTok</a>
+        <a href="https://youtube.com/@rararotherichest?si=d_aV3b5XKueVU5xH" target="_blank">YouTube</a>
+        <a href="https://discord.gg/z22V4Qz7qp" class="discord-button" target="_blank">Join my Discord</a>
+    </div>
+
+    <p>I Am Rararo A Robloxian Who Likes Entertaining Everyone And Friends And Making others happy. I wish You Would Subscribe and Show me some love 💕🙏🏻</p>
+    <p>~~~~~~~~~~~~~~~~~~~~~~~~</p>
+    <p>Tiktok: ( RararoTheRichest ) 3K+ Followers🎮</p>
+    <p>~~~~~~~~~~~~~~~~~~~~~~~~</p>
+    <p>500 Followers ✅</p>
+    <p>1000 Followers ✅</p>
+    <p>1500 Followers ✅</p>
+    <p>2000 Followers ✅</p>
+    <p>2500 Followers ✅</p>
+    <p>3000 Followers ✅</p>
+    <p>Road to 10K Followers on TIKTOK! 🙏</p>
+
+    <h1>TikTok Live Status Checker</h1>
+    <div id="status-message">Checking live status...</div>
+
+    <p style="font-size: 12px; color: #888;">Website created by [Zouheir0]. All rights reserved.</p>
+
+    <script>
+        // Run the script when the page is fully loaded
+        window.addEventListener('DOMContentLoaded', (event) => {
+            // Fetch the live status
+            fetch('/check-live')
+                .then(response => response.json())
+                .then(data => {
+                    const statusMessage = document.getElementById('status-message');
+                    if (data.live) {
+                        statusMessage.innerHTML = 'The user is live on TikTok!';
+                        statusMessage.style.color = 'green';
+                    } else {
+                        statusMessage.innerHTML = 'The user is not live.';
+                        statusMessage.style.color = 'red';
+                    }
+                })
+                .catch(error => {
+                    const statusMessage = document.getElementById('status-message');
+                    statusMessage.innerHTML = 'Error checking live status.';
+                    statusMessage.style.color = 'gray';
+                });
+        });
+    </script>
+
+</body>
+</html>
