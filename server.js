@@ -1,17 +1,37 @@
 const express = require('express');
 const path = require('path');
+const { WebcastPushConnection } = require('tiktok-live-connector');
+
 const app = express();
+const port = process.env.PORT || 3000;
 
-// Serve static files (like CSS, JS, images) from the "other-group/public" folder
-app.use(express.static(path.join(__dirname, 'other-group', 'public')));
+// Serve static files (like CSS, JavaScript, images) from the "public" folder
+app.use(express.static(path.join(__dirname, 'public')));
 
-// Serve index.html when someone accesses the root URL
+// Serve the main website (index.html)
 app.get('/', (req, res) => {
-  res.sendFile(path.join(__dirname, 'other-group', 'public', 'index.html'));
+    res.sendFile(path.join(__dirname, 'public', 'index.html'));
 });
 
-// Set the port to listen on
-const port = process.env.PORT || 3000;
+// TikTok Live Checker Setup
+const username = 'rararotherichest'; // Replace with the TikTok username
+const tiktokLiveConnection = new WebcastPushConnection(username);
+
+// Create an API route to check live status
+app.get('/check-live', async (req, res) => {
+    try {
+        const roomInfo = await tiktokLiveConnection.getRoomInfo();
+        if (roomInfo && roomInfo.status === 4) {
+            res.json({ live: true, message: `${username} is currently LIVE on TikTok!` });
+        } else {
+            res.json({ live: false, message: `${username} is not live.` });
+        }
+    } catch (error) {
+        res.status(500).json({ error: 'Error checking live status' });
+    }
+});
+
+// Start the server
 app.listen(port, () => {
-  console.log(`Server is running on port ${port}`);
+    console.log(`Server is running on http://localhost:${port}`);
 });
