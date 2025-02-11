@@ -1,55 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>RararoTheRichest</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
-            padding: 50px;
-            text-align: center;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            font-size: 18px;
-            color: #555;
-        }
-        .social-links {
-            margin-top: 20px;
-        }
-        .social-links a {
-            text-decoration: none;
-            font-size: 20px;
-            color: #fff;
-            background-color: #333;
-            padding: 10px 20px;
-            border-radius: 5px;
-            margin: 10px;
-        }
-        .discord-button {
-            background-color: #7289da;
-        }
-        #status-message {
-            font-size: 24px;
-            margin-top: 20px;
-        }
-    </style>
-</head>
-<body>
+.social-links {
+    margin-top: 30px;
+    display: flex;              /* Use flexbox for alignment */
+    flex-wrap: wrap;            /* Allow wrapping on small screens */
+    justify-content: center;    /* Center buttons */
+    gap: 25px;                  /* Increase spacing between buttons */
+}
 
-    <h1>Welcome to RararoTheRichest Website!</h1>
-    <p>Follow me on my journey across TikTok, YouTube, and Discord!</p>
+.social-button {
+    text-decoration: none;
+    font-size: 22px;            /* Make text bigger */
+    font-weight: bold;
+    color: #fff;
+    padding: 15px 25px;         /* Make buttons bigger */
+    border-radius: 8px;
+    flex: 1 1 40%;              /* Adjusts width (responsive) */
+    text-align: center;
+    transition: transform 0.2s ease-in-out;
+}
 
-    <div class="social-links">
-        <a href="https://www.tiktok.com/@rararotherichest" target="_blank">TikTok</a>
-        <a href="https://youtube.com/@rararotherichest?si=d_aV3b5XKueVU5xH" target="_blank">YouTube</a>
-        <a href="https://discord.gg/z22V4Qz7qp" class="discord-button" target="_blank">Join my Discord</a>
-        <a href="https://www.instagram.com/rararotherichest?igsh=cGJuajdsNTVjN2F1" class="Instagram-button" target="_blank">Instagram</a>
-    </div>
+.social-button:hover {
+    transform: scale(1.05);     /* Slightly enlarge on hover */
+}
+
+/* Button Colors */
+.tiktok-button { background-color: #000; }      /* Black */
+.youtube-button { background-color: #FF0000; }  /* Red */
+.instagram-button { background-color: #C13584; }/* Instagram pink */
+.discord-button { background-color: #7289da; }  /* Discord blue */
+<div class="social-links">
+    <a href="https://www.tiktok.com/@rararotherichest" target="_blank" class="social-button tiktok-button">TikTok</a>
+    <a href="https://youtube.com/@rararotherichest?si=d_aV3b5XKueVU5xH" target="_blank" class="social-button youtube-button">YouTube</a>
+    <a href="https://www.instagram.com/rararo" target="_blank" class="social-button instagram-button">Instagram</a>
+    <a href="https://discord.gg/z22V4Qz7qp" class="social-button discord-button" target="_blank">Join my Discord</a>
+</div>
 
     <p>I Am Rararo A Robloxian Who Likes Entertaining Everyone And Friends And Making others happy. I wish You Would Subscribe and Show me some love 💕🙏🏻</p>
     <p>~~~~~~~~~~~~~~~~~~~~~~~~</p>
